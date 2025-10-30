@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Форма отправки резюме</title>
+</head>
+<body>
+  <h1>Отправка резюме</h1>
+
+  <form name="cv-application" method="POST" data-netlify="true" enctype="multipart/form-data">
+    <input type="hidden" name="form-name" value="cv-application">
+    <input type="hidden" name="page" id="page" value="">
+    <script>
+      document.getElementById('page').value = window.location.href;
+    </script>
+
+    <label>Имя:</label><br>
+    <input type="text" name="name" required><br><br>
+
+    <label>Email:</label><br>
+    <input type="email" name="email" required><br><br>
+
+    <label>Резюме (CV):</label><br>
+    <input type="file" name="cv" required><br><br>
+
+    <button type="submit">Отправить</button>
+  </form>
+</body>
+</html>
