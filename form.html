@@ -1,0 +1,25 @@
+<form name="cv-application" method="POST" data-netlify="true" enctype="multipart/form-data">
+  <input type="hidden" name="form-name" value="cv-application">
+  <!-- сюда автоматически подставим название должности -->
+  <input type="hidden" name="position" id="position-hidden" value="">
+  <!-- и адрес страницы -->
+  <input type="hidden" name="page" id="page-hidden" value="">
+
+  <label>Имя</label><br>
+  <input type="text" name="name" required><br><br>
+
+  <label>Email</label><br>
+  <input type="email" name="email" required><br><br>
+
+  <label>Резюме (CV)</label><br>
+  <input type="file" name="cv" required><br><br>
+
+  <button type="submit">Отправить</button>
+
+  <script>
+    // подставляем URL страницы
+    document.getElementById('page-hidden').value = window.location.href;
+    // если на странице определена JS-переменная JOB_TITLE — пишем её в hidden
+    if (window.JOB_TITLE) document.getElementById('position-hidden').value = window.JOB_TITLE;
+  </script>
+</form>
