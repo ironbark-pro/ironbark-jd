@@ -5,15 +5,20 @@ backend:
 media_folder: "assets/uploads"
 public_folder: "/assets/uploads"
 
+publish_mode: editorial_workflow
+
+site_url: https://ironbark-jobs.com
+logo_url: https://ironbark-jobs.com/assets/logo.png
+
 collections:
   - name: "jobs"
-    label: "Вакансии"
+    label: "Vacancies"
     folder: "jobs"
     create: true
     slug: "{{slug}}"
     fields:
-      - { label: "Название вакансии", name: "title", widget: "string" }
-      - { label: "Город / локация", name: "location", widget: "string" }
-      - { label: "Описание", name: "description", widget: "markdown" }
-      - { label: "Требования", name: "requirements", widget: "markdown" }
-      - { label: "Форма отклика", name: "form", widget: "hidden", default: "/form.html" }
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Location", name: "location", widget: "string", required: false }
+      - { label: "Description", name: "body", widget: "markdown" }
+      - { label: "Requirements", name: "requirements", widget: "markdown", required: false }
+      - { label: "Apply Form", name: "apply", widget: "hidden", default: "/form.html" }
