@@ -1,0 +1,19 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "assets/uploads"
+public_folder: "/assets/uploads"
+
+collections:
+  - name: "jobs"
+    label: "Вакансии"
+    folder: "jobs"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Название вакансии", name: "title", widget: "string" }
+      - { label: "Город / локация", name: "location", widget: "string" }
+      - { label: "Описание", name: "description", widget: "markdown" }
+      - { label: "Требования", name: "requirements", widget: "markdown" }
+      - { label: "Форма отклика", name: "form", widget: "hidden", default: "/form.html" }
