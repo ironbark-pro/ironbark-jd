@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Market Mapping | IRONBARK</title>
+  <meta name="description" content="Download insights and salary data from EPCM, biotech, and data center industries.">
+  <style>
+    body{font-family:Arial,Helvetica,sans-serif;margin:0;padding:40px;background:#F5F2ED;color:#1D2D29}
+    .wrap{max-width:900px;margin:0 auto}
+    h1{margin:0 0 8px}
+    p{margin:0 0 24px}
+    form{display:grid;gap:12px;max-width:520px}
+    label{font-size:14px}
+    input,textarea,button{padding:10px;font-size:15px}
+    button{background:#D4A63A;color:#fff;border:0;cursor:pointer}
+    button:hover{background:#335C5B}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <h1>Market Mapping: Leadership Trends 2025</h1>
+    <p>Receive a concise report on leadership movements and salary trends in EPCM, biotech, and semiconductor construction.</p>
+
+    <form name="mapping-form" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+      <input type="hidden" name="form-name" value="mapping-form">
+      <p hidden><input name="bot-field"></p>
+
+      <label>Name
+        <input type="text" name="name" required>
+      </label>
+      <label>Email
+        <input type="email" name="email" required>
+      </label>
+      <label>Company
+        <input type="text" name="company">
+      </label>
+
+      <button type="submit">Get PDF Report</button>
+    </form>
+  </div>
+</body>
+</html>
