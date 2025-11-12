@@ -9,6 +9,7 @@
   <style>
     body { margin:0; font-family:Arial,Helvetica,sans-serif; background:#335C5B; color:#fff; line-height:1.6; }
     header { background:#1D2D29; padding:28px 20px; text-align:center; }
+    header img { height:50px; margin-bottom:10px; }
     h1 { margin:0 0 4px; color:#D4A63A; font-size:32px; }
     .loc { opacity:.9; }
     section { max-width:900px; margin:36px auto; padding:0 20px; }
@@ -23,7 +24,11 @@
   </style>
 </head>
 <body>
+
   <header>
+    <a href="/" style="text-decoration:none;">
+      <img src="/assets/ironbark-logo.png" alt="IRONBARK Executive Search">
+    </a>
     <h1>{{ title }}</h1>
     <div class="loc">{{ location }}</div>
   </header>
@@ -61,20 +66,27 @@
 
       <label>Name</label>
       <input type="text" name="name" required>
+
       <label>Email</label>
       <input type="email" name="email" required>
+
       <label>Phone</label>
       <input type="tel" name="phone">
+
       <label>LinkedIn</label>
       <input type="url" name="linkedin" placeholder="https://linkedin.com/in/...">
+
       <label>Upload CV</label>
       <input type="file" name="cv" accept=".pdf,.doc,.docx">
+
       <label>Message</label>
       <textarea name="message" rows="4" placeholder="Availability, location, salary expectations"></textarea>
+
       <button type="submit">Submit</button>
     </form>
   </section>
 
   <footer>© 2025 IRONBARK Executive Search</footer>
+
 </body>
 </html>
