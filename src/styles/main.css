@@ -43,7 +43,30 @@ a:hover {
   padding: 20px;
 }
 
-footer {
+footer { 
+  /* === IRONBARK watermark === */
+body::before {
+  content: "IRONBARK Executive Search";
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(-32deg);
+  font-family: 'Playfair Display', serif;
+  font-size: 80px;
+  color: rgba(29, 45, 41, 0.045); /* почти незаметно, но читаемо */
+  letter-spacing: 2px;
+  white-space: nowrap;
+  pointer-events: none;
+  user-select: none;
+  z-index: 0;
+}
+
+/* контент поверх */
+body, .wrap {
+  position: relative;
+  z-index: 1;
+}
+
   margin-top: 60px;
   text-align: center;
   font-size: 14px;
