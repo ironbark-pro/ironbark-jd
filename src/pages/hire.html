@@ -2,27 +2,68 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
+  <link rel="icon" type="image/png" href="/src/assets/favicon-ib.png">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Hire a Project Manager | IRONBARK</title>
-  <meta name="description" content="Project Manager for semiconductor or biotech construction. Apply with your CV or LinkedIn.">
+  <title>Apply | IRONBARK Executive Search</title>
+  <meta name="description" content="Apply for EPCM, biotech and data center leadership roles.">
   <style>
-    body{font-family:Arial,Helvetica,sans-serif;margin:0;padding:40px;background:#F5F2ED;color:#1D2D29}
-    .wrap{max-width:900px;margin:0 auto}
-    h1{margin:0 0 8px}
-    p{margin:0 0 24px}
-    form{display:grid;gap:12px;max-width:520px}
-    label{font-size:14px}
-    input,textarea,button{padding:10px;font-size:15px}
-    button{background:#D4A63A;color:#fff;border:0;cursor:pointer}
-    button:hover{background:#335C5B}
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      margin: 0;
+      padding: 40px;
+      background-color: #335C5B;
+      color: #fff;
+    }
+    .wrap {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    h1 {
+      margin: 0 0 10px;
+    }
+    p {
+      margin: 0 0 20px;
+      color: #E5E5E5;
+    }
+    form {
+      display: grid;
+      gap: 12px;
+      max-width: 520px;
+      background: rgba(255,255,255,0.1);
+      padding: 24px;
+      border-radius: 8px;
+    }
+    label {
+      font-size: 14px;
+      display: block;
+    }
+    input, textarea, button {
+      padding: 10px;
+      font-size: 15px;
+      border: none;
+      border-radius: 4px;
+    }
+    input, textarea {
+      width: 100%;
+    }
+    button {
+      background: #D4A63A;
+      color: #fff;
+      cursor: pointer;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    button:hover {
+      background: #1D2D29;
+    }
   </style>
-</head> 
+</head>
 <body>
   <div class="wrap">
-    <h1>Hire a Project Manager</h1>
-    <p>Join EPCM projects in semiconductors and biotech. Send your profile.</p>
+    <h1>Apply for this Role</h1>
+    <p>Submit your profile to join EPCM, biotech, or semiconductor leadership projects.</p>
 
-    <form name="hire-form" method="POST" action="/src/pages/success.html" data-netlify="true" netlify-honeypot="bot-field">
+    <form name="hire-form" method="POST" data-netlify="true" netlify-honeypot="bot-field">
       <input type="hidden" name="form-name" value="hire-form">
       <p hidden><input name="bot-field"></p>
 
@@ -33,7 +74,7 @@
         <input type="email" name="email" required>
       </label>
       <label>LinkedIn URL
-        <input type="url" name="linkedin" placeholder="https://linkedin.com/in/...">
+        <input type="url" name="linkedin">
       </label>
       <label>Upload CV
         <input type="file" name="cv">
@@ -44,7 +85,6 @@
 
       <button type="submit">Submit</button>
     </form>
-  </div> 
-  <script src="/src/layouts/include.js"></script>
+  </div>
 </body>
 </html>
