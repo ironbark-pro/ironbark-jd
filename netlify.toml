@@ -25,7 +25,9 @@
 
 [[redirects]]
   from = "/admin"
-  to = "/src/admin/index.html"
+  to = "/admin/index.html"
   status = 200
+
+
 
 
