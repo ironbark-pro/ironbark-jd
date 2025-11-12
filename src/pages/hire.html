@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Hire a Project Manager | IRONBARK</title>
+  <meta name="description" content="Project Manager for semiconductor or biotech construction. Apply with your CV or LinkedIn.">
+  <style>
+    body{font-family:Arial,Helvetica,sans-serif;margin:0;padding:40px;background:#F5F2ED;color:#1D2D29}
+    .wrap{max-width:900px;margin:0 auto}
+    h1{margin:0 0 8px}
+    p{margin:0 0 24px}
+    form{display:grid;gap:12px;max-width:520px}
+    label{font-size:14px}
+    input,textarea,button{padding:10px;font-size:15px}
+    button{background:#D4A63A;color:#fff;border:0;cursor:pointer}
+    button:hover{background:#335C5B}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <h1>Hire a Project Manager</h1>
+    <p>Join EPCM projects in semiconductors and biotech. Send your profile.</p>
+
+    <form name="hire-form" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+      <input type="hidden" name="form-name" value="hire-form">
+      <p hidden><input name="bot-field"></p>
+
+      <label>Name
+        <input type="text" name="name" required>
+      </label>
+      <label>Email
+        <input type="email" name="email" required>
+      </label>
+      <label>LinkedIn URL
+        <input type="url" name="linkedin" placeholder="https://linkedin.com/in/...">
+      </label>
+      <label>Upload CV
+        <input type="file" name="cv">
+      </label>
+      <label>Comment
+        <textarea name="comment" rows="4" placeholder="Availability, location, salary expectations"></textarea>
+      </label>
+
+      <button type="submit">Submit</button>
+    </form>
+  </div>
+</body>
+</html>
