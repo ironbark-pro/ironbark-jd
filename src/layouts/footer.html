@@ -1,4 +1,16 @@
-<footer style="margin-top:60px;padding:20px 0;border-top:1px solid #D4A63A;text-align:center;color:#335C5B;font-size:14px;">
+<footer style="margin-top:60px;padding:20px 0;border-top:1px solid #D4A63A;text-align:center;color:#335C5B;font-size:14px;line-height:1.6;">
   <p>© 2025 IRONBARK Executive Search</p>
-  <p>Contact: <a href="mailto:info@ironbark.pro" style="color:#335C5B;text-decoration:none;">info@ironbark.pro</a></p>
+  <p>
+    Contact:
+    <a href="mailto:info@ironbark.pro" style="color:#335C5B;text-decoration:none;">info@ironbark.pro</a>
+  </p>
 </footer>
+
+<script>
+  // hover-эффект для ссылки (чисто визуальный)
+  const link = document.querySelector('footer a');
+  if (link) {
+    link.addEventListener('mouseenter', () => link.style.color = '#D4A63A');
+    link.addEventListener('mouseleave', () => link.style.color = '#335C5B');
+  }
+</script>
