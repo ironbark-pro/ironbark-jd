@@ -1,14 +1,14 @@
 backend:
   name: git-gateway
   branch: main
+
 media_folder: "src/assets/uploads"
 public_folder: "src/assets/uploads"
-
 
 collections:
   - name: "jobs"
     label: "Job Listings"
-    folder: "src/pages/hire"
+    folder: "src/pages/jobs"
     create: true
     slug: "{{slug}}"
     extension: "html"
@@ -16,9 +16,12 @@ collections:
     editor:
       preview: false
     fields:
-      - {label: "Job Title", name: "title", widget: "string"}
-      - {label: "Location", name: "location", widget: "string"}
-      - {label: "Industry", name: "industry", widget: "string"}
-      - {label: "Employment Type", name: "type", widget: "string", default: "Full-time"}
-      - {label: "Description", name: "body", widget: "markdown"}
-      - {label: "Requirements", name: "requirements", widget: "markdown"}
+      - { label: "Job Title", name: "title", widget: "string" }
+      - { label: "Location", name: "location", widget: "string" }
+      - { label: "Short Description", name: "intro", widget: "text" }
+      - { label: "About the Company", name: "company", widget: "markdown" }
+      - { label: "About the Role", name: "role", widget: "markdown" }
+      - { label: "Responsibilities", name: "responsibilities", widget: "markdown" }
+      - { label: "Requirements", name: "requirements", widget: "markdown" }
+      - { label: "Conditions", name: "conditions", widget: "markdown" }
+      - { label: "Posted Date", name: "date", widget: "datetime" }
