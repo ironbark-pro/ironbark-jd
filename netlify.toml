@@ -1,6 +1,6 @@
 [build]
   command = ""            # отключаем npm run build
-  publish = "src/pages"   # путь к html-страницам
+  publish = ""public"   # путь к html-страницам
 
 # 🔁 Перенаправления (чтобы /hire → /hire.html и т.п.)
 [[redirects]]
