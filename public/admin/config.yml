@@ -8,7 +8,7 @@ public_folder: "/assets/uploads"
 collections:
   - name: "jobs"
     label: "Job Listings"
-    folder: "src/pages/jobs"
+    folder: "public/jobs"
     create: true
     slug: "{{slug}}"
     extension: "md"
