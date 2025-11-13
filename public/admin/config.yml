@@ -11,7 +11,7 @@ collections:
     folder: "src/pages/jobs"
     create: true
     slug: "{{slug}}"
-    extension: "html"
+    extension: "md"
     format: "frontmatter"
     editor:
       preview: false
