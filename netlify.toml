@@ -23,6 +23,11 @@
   to = "/success.html"
   status = 200
 
+  [[redirects]]
+  from = "/jobs/*.html"
+  to = "/jobs/job-detail.html"
+  status = 200
+
  [[headers]]
  for = "/admin/config.yml"
  [headers.values]
