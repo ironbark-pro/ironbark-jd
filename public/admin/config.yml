@@ -20,7 +20,7 @@ collections:
       - { label: "Location", name: "location", widget: "string" }
       - { label: "Short Description", name: "intro", widget: "text", required: false }
       - { label: "About the Company", name: "company", widget: "markdown" }
-      - { label: "About the Role", name: "role", widget: "markdown" }, required: false
+      - { label: "About the Role", name: "role", widget: "markdown" , required: false }
       - { label: "Responsibilities", name: "responsibilities", widget: "markdown" }
       - { label: "Requirements", name: "requirements", widget: "markdown" }
       - { label: "Conditions", name: "conditions", widget: "markdown" }
