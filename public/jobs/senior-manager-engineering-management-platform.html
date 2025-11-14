@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title id="pageTitle">Job Details | Ironbark</title>
+    <link rel="icon" href="/assets/favicon-ib.png">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { background: #3C5D5C; color: #FFF; font-family: Arial, Helvetica, sans-serif; line-height: 1.6; }
+        .logo { text-align: center; padding: 40px 20px 20px; }
+        .logo img { max-width: 300px; }
+        .container { max-width: 900px; margin: 0 auto; padding: 20px; }
+        .back-link { color: #D4A63A; text-decoration: none; font-size: 14px; display: inline-block; margin-bottom: 30px; }
+        .back-link:hover { text-decoration: underline; }
+        .job-header { margin-bottom: 40px; }
+        .job-title { font-size: 32px; font-weight: bold; margin-bottom: 16px; }
+        .job-meta { display: flex; gap: 20px; color: rgba(255,255,255,0.7); margin-bottom: 24px; font-size: 15px; }
+        .job-content { background: rgba(255,255,255,0.05); padding: 32px; border-radius: 8px; margin-bottom: 40px; }
+        .job-content h2 { color: #D4A63A; font-size: 20px; margin: 24px 0 12px; }
+        .job-content p { margin-bottom: 16px; color: rgba(255,255,255,0.9); }
+        .job-content ul { margin-left: 20px; margin-bottom: 16px; }
+        .job-content li { margin-bottom: 8px; color: rgba(255,255,255,0.9); }
+        .application-section { background: rgba(0,0,0,0.2); padding: 40px; border-radius: 8px; }
+        .application-section h2 { font-size: 24px; color: #D4A63A; text-align: center; margin-bottom: 30px; }
+        .form-group { margin-bottom: 20px; }
+        .form-group label { display: block; margin-bottom: 8px; font-weight: 600; color: #FFF; }
+        .form-group input, .form-group textarea { width: 100%; padding: 12px; border: 1px solid rgba(255,255,255,0.3); border-radius: 4px; font-size: 15px; background: rgba(255,255,255,0.1); color: #FFF; font-family: inherit; }
+        .form-group input::placeholder, .form-group textarea::placeholder { color: rgba(255,255,255,0.5); }
+        .form-group textarea { min-height: 100px; resize: vertical; }
+        .submit-btn { background: #D4A63A; color: #1D2D29; padding: 14px 40px; border: none; border-radius: 4px; font-size: 16px; font-weight: 600; cursor: pointer; width: 100%; transition: all 0.3s; }
+        .submit-btn:hover { background: #C49530; }
+    </style>
+</head>
+<body>
+    <div class="logo"><a href="https://ironbark.pro"><img src="/assets/ironbark-logo.png" alt="Ironbark"></a></div>
+    <div class="container">
+        <a href="/jobs.html" class="back-link">← Back to All Jobs</a>
+        <div class="job-header">
+            <h1 class="job-title" id="jobTitle">Loading...</h1>
+            <div class="job-meta" id="jobMeta"></div>
+        </div>
+        <div class="job-content" id="jobContent"></div>
+        <div class="application-section">
+            <h2>Apply for this Role</h2>
+            <form name="job-application" method="POST" data-netlify="true" enctype="multipart/form-data">
+                <input type="hidden" name="form-name" value="job-application">
+                <input type="hidden" name="job-title" id="formJobTitle">
+                <div class="form-group"><label>Name</label><input type="text" name="name" required></div>
+                <div class="form-group"><label>Email</label><input type="email" name="email" required></div>
+                <div class="form-group"><label>LinkedIn URL</label><input type="url" name="linkedin" placeholder="https://linkedin.com/in/yourprofile"></div>
+                <div class="form-group"><label>Upload CV</label><input type="file" name="resume" accept=".pdf,.doc,.docx" required></div>
+                <div class="form-group"><label>Comment</label><textarea name="comment" placeholder="Which responsibilities have you handled, and which are new to you? We're here to help you find the best company and role match."></textarea></div>
+                <button type="submit" class="submit-btn">SUBMIT</button>
+            </form>
+        </div>
+    </div>
+    <script>
+        const pathParts = window.location.pathname.split('/');
+        const jobSlug = pathParts[pathParts.length - 1].replace('.html', '');
+        const jobsData = {
+            'senior-manager-engineering-management-platform': {
+                title: 'Senior Manager, Engineering Management Platform',
+                location: 'Southwest US (Arizona region)',
+                company: 'International EPCM provider',
+                description: '<p>An international EPCM provider serving advanced manufacturing sectors, with deep expertise in cleanrooms, complex engineering systems, and large-scale capital project delivery.</p><h2>Responsibilities</h2><ul><li>Manage integrated Project Delivery Systems</li><li>Lead engineering teams</li><li>Drive technical strategy</li></ul><h2>Requirements</h2><ul><li>15+ years in engineering management</li><li>Experience in EPCM projects</li></ul>'
+            }
+        };
+        const job = jobsData[jobSlug];
+        if (job) {
+            document.getElementById('pageTitle').textContent = `${job.title} | Ironbark`;
+            document.getElementById('jobTitle').textContent = job.title;
+            document.getElementById('jobMeta').innerHTML = `<span>📍 ${job.location}</span>`;
+            document.getElementById('jobContent').innerHTML = job.description;
+            document.getElementById('formJobTitle').value = job.title;
+        } else {
+            document.getElementById('jobTitle').textContent = 'Job Not Found';
+            document.getElementById('jobContent').innerHTML = '<p>Sorry, this job listing could not be found.</p>';
+        }
+    </script>
+</body>
+</html>
