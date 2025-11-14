@@ -1,27 +1,150 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <title>Job Openings | IRONBARK</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" type="image/png" href="/src/assets/favicon-ib.png">
-  <style>
-    body { background:#1D2D29; color:#fff; font-family:Arial,Helvetica,sans-serif; padding:40px 20px; }
-    h1 { margin:0 0 16px; }
-    a { color:#D4A63A; text-decoration:none; }
-    a:hover { text-decoration:underline; }
-    .list { max-width:900px; margin:0 auto; }
-    .item { padding:10px 0; border-bottom:1px solid rgba(255,255,255,.12); }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Current Opportunities | IRONBARK</title>
+    <link rel="icon" type="image/png" href="/assets/favicon-ib.png">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            background: #1D2D29;
+            color: #FFFFFF;
+            font-family: Arial, Helvetica, sans-serif;
+            line-height: 1.6;
+            padding: 40px 20px;
+        }
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        header {
+            margin-bottom: 60px;
+            text-align: center;
+        }
+        h1 {
+            font-size: 40px;
+            font-weight: bold;
+            color: #FFFFFF;
+            margin-bottom: 16px;
+        }
+        .subtitle {
+            font-size: 18px;
+            color: #CCCCCC;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        .job-list {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        .job-item {
+            padding: 24px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        .job-item:last-child {
+            border-bottom: none;
+        }
+        .job-title {
+            font-size: 26px;
+            font-weight: 600;
+            color: #D4A63A;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 8px;
+            transition: all 0.3s ease;
+        }
+        .job-title:hover {
+            text-decoration: underline;
+            color: #E5B74B;
+        }
+        .job-location {
+            font-size: 16px;
+            color: #CCCCCC;
+            margin-bottom: 12px;
+        }
+        .job-intro {
+            font-size: 15px;
+            color: #EEEEEE;
+            line-height: 1.75;
+            max-width: 800px;
+        }
+        .loading {
+            text-align: center;
+            padding: 60px 20px;
+            color: #CCCCCC;
+            font-size: 18px;
+        }
+        .error {
+            text-align: center;
+            padding: 60px 20px;
+            color: #ff6b6b;
+            font-size: 16px;
+        }
+    </style>
 </head>
 <body>
-  <div class="list">
-    <h1>Current Openings</h1>
-    {% for job in collections.jobs %}
-      <div class="item">
-        <a href="{{ job.url }}">{{ job.data.title }}</a> — {{ job.data.location }}
-      </div>
-    {% endfor %}
-  </div>
+    <div class="container">
+        <header>
+            <h1>Current Opportunities</h1>
+            <p class="subtitle">Join our network of exceptional executive talent shaping the future of advanced manufacturing and engineering</p>
+        </header>
+        <div id="jobList" class="job-list">
+            <div class="loading">Loading positions...</div>
+        </div>
+    </div>
+    <script>
+        async function loadJobs() {
+            try {
+                const response = await fetch('https://api.github.com/repos/ironbark-pro/ironbark-jd/contents/jobs');
+                const files = await response.json();
+                const jobFiles = files.filter(file => file.name.endsWith('.md'));
+                
+                const jobs = await Promise.all(jobFiles.map(async file => {
+                    const content = await fetch(file.download_url).then(r => r.text());
+                    const frontMatter = content.match(/^---\n([\s\S]+?)\n---/)?.[1];
+                    if (!frontMatter) return null;
+                    
+                    const data = {};
+                    frontMatter.split('\n').forEach(line => {
+                        const match = line.match(/^(\w+):\s*(.+)$/);
+                        if (match) {
+                            data[match[1]] = match[2].replace(/^['"]|['"]$/g, '');
+                        }
+                    });
+                    
+                    return {
+                        slug: file.name.replace('.md', ''),
+                        title: data.title || 'Untitled Position',
+                        location: data.location || '',
+                        intro: data.intro || ''
+                    };
+                }));
+                
+                const validJobs = jobs.filter(job => job !== null);
+                displayJobs(validJobs);
+            } catch (error) {
+                document.getElementById('jobList').innerHTML = '<div class="error">Unable to load positions. Please try again later.</div>';
+            }
+        }
+        
+        function displayJobs(jobs) {
+            const jobList = document.getElementById('jobList');
+            if (jobs.length === 0) {
+                jobList.innerHTML = '<div class="loading">No positions available at the moment.</div>';
+                return;
+            }
+            
+            jobList.innerHTML = jobs.map(job => `
+                <div class="job-item">
+                    <a href="/jobs/${job.slug}.html" class="job-title">${job.title}</a>
+                    <div class="job-location">${job.location}</div>
+                    ${job.intro ? `<div class="job-intro">${job.intro}</div>` : ''}
+                </div>
+            `).join('');
+        }
+        
+        loadJobs();
+    </script>
 </body>
 </html>
