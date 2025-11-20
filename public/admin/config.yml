@@ -1,6 +1,12 @@
 backend:
   name: git-gateway
+  repo: ironbark-pro/ironbark-jd
   branch: main
+  auth_type: pkce
+  base_url: https://auth.decapbridge.com
+  auth_endpoint: /sites/a7dafa0d-146a-4c42-853b-9c0290ad997b/pkce
+  auth_token_endpoint: /sites/a7dafa0d-146a-4c42-853b-9c0290ad997b/token
+  gateway_url: https://gateway.decapbridge.com
 
 media_folder: "assets/uploads"
 public_folder: "/assets/uploads"
