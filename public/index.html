@@ -1,43 +1,18 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>IRONBARK Admin</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IRONBARK Jobs</title>
+    <meta http-equiv="refresh" content="0;url=/admin/">
     <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 </head>
 <body>
-    <!-- Include the script that builds the page and powers Decap CMS -->
-    <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
+    <p>Redirecting to admin panel...</p>
+    <p>If not redirected, <a href="/admin/">click here</a>.</p>
+    
     <script>
-        // Custom enhancements for Decap CMS
-        window.addEventListener('load', function() {
-            // Wait for CMS to load
-            setTimeout(function() {
-                // Add "View Published Jobs" link to sidebar
-                const sidebar = document.querySelector('[class*="SidebarContainer"]') || document.querySelector('aside');
-                if (sidebar) {
-                    const link = document.createElement('a');
-                    link.href = '/jobs';
-                    link.target = '_blank';
-                    link.textContent = '🔗 View Published Jobs';
-                    link.style.cssText = 'display:block;padding:12px 20px;color:#3d5afe;text-decoration:none;font-weight:500;border-top:1px solid #e0e0e0;';
-                    sidebar.appendChild(link);
-                }
-
-                // Add "Back to Ironbark.pro" link to sidebar
-                const backLink = document.createElement('a');
-                backLink.href = 'https://ironbark.pro';
-                backLink.target = '_blank';
-                backLink.textContent = '← Back to Ironbark.pro';
-                backLink.style.cssText = 'display:block;padding:12px 20px;color:#666;text-decoration:none;border-top:1px solid #e0e0e0;';
-                if (sidebar) {
-                    sidebar.appendChild(backLink);
-                }
-            }, 1000);
-        });
-
-        // Initialize Netlify Identity
+        // Handle Netlify Identity redirects
         if (window.netlifyIdentity) {
             window.netlifyIdentity.on("init", user => {
                 if (!user) {
@@ -47,6 +22,11 @@
                 }
             });
         }
+        
+        // Redirect after 1 second if meta refresh doesn't work
+        setTimeout(function() {
+            window.location.href = "/admin/";
+        }, 1000);
     </script>
 </body>
 </html>
