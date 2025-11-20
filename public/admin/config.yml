@@ -17,7 +17,7 @@ collections:
     folder: "jobs"
     create: true
     slug: "{{slug}}"
-        preview_path: "jobs/{{slug}}.html"
+    preview_path: "jobs/{{slug}}.html"
     extension: "md"
     format: "frontmatter"
     editor:
