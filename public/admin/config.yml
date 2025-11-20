@@ -3,7 +3,7 @@ backend:
     repo: ironbark-pro/ironbark-jd
       branch: main
 media_folder: "assets/uploads"
-blic_folder: "/assets/uploads"
+public_folder: "/assets/uploads"
 media_library:
   name: uploadcare
   config:
