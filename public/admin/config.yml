@@ -17,10 +17,11 @@ collections:
     folder: "jobs"
     create: true
     slug: "{{slug}}"
+        preview_path: "jobs/{{slug}}.html"
     extension: "md"
     format: "frontmatter"
     editor:
-      preview: false
+      preview: true
     fields:
       - { label: "Job Title", name: "title", widget: "string" }
       - { label: "Location", name: "location", widget: "string" }
