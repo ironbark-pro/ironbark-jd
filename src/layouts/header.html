@@ -3,8 +3,11 @@
     
     <!-- Логотип -->
     <a href="/" style="display:flex;align-items:center;gap:10px;text-decoration:none;">
+    {% if page.url == '/jobs/' %}
+      <img src="/assets/ironbark-logo-dark.png" alt="IRONBARK Executive Search">
+    {% else %}
       <img src="/assets/ironbark-logo.png" alt="IRONBARK Executive Search">
-    </a>
+    {% endif %}    </a>
 
     <!-- Навигация -->
     <nav>
