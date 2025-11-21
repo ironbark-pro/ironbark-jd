@@ -1,13 +1,12 @@
 backend:
-  name: github
-  repo: ironbark-pro/ironbark-jd
+  name: git-gateway
   branch: main
 media_folder: "assets/uploads"
 public_folder: "/assets/uploads"
 media_library:
   name: uploadcare
-  config:
-    publicKey: demopublickey
+config:
+  publicKey: demopublickey
 collections:
   - name: "jobs"
     label: "Job Listings"
@@ -15,17 +14,8 @@ collections:
     create: true
     slug: "{{slug}}"
     preview_path: "jobs/{{slug}}.html"
-    extension: "md"
-    format: "frontmatter"
-    editor:
-      preview: true
     fields:
-      - { label: "Job Title", name: "title", widget: "string" }
-      - { label: "Location", name: "location", widget: "string" }
-      - { label: "Short Description", name: "intro", widget: "text", required: false }
-      - { label: "About the Company", name: "company", widget: "markdown" }
-      - { label: "About the Role", name: "role", widget: "markdown", required: false }
-      - { label: "Responsibilities", name: "responsibilities", widget: "markdown" }
-      - { label: "Requirements", name: "requirements", widget: "markdown" }
-      - { label: "Conditions", name: "conditions", widget: "markdown" }
-      - { label: "Posted Date", name: "date", widget: "datetime" }
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Location", name: "location", widget: "string"}
+      - {label: "Description", name: "body", widget: "markdown"}
+      - {label: "Published", name: "published", widget: "boolean", default: false}
