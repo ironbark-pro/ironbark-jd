@@ -1,8 +1,13 @@
 [build]
-  command = ""            # отключаем npm run build
-  publish = "public"   # путь к html-страницам
+  command = "npm install && npx eleventy"  # Включаем сборку!
+  publish = "_site"  # Новая папка для публикации
 
 # Перенаправления (чтобы /hire → /hire.html и т.п.)
+[[redirects]]
+  from = "/"
+  to = "/jobs/"
+  status = 200
+
 [[redirects]]
   from = "/hire"
   to = "/hire.html"
@@ -22,7 +27,7 @@
   from = "/success"
   to = "/success.html"
   status = 200
-  
+
 [[redirects]]
   from = "/*"
   to = "/index.html"
