@@ -1,15 +1,13 @@
 backend:
-    name: github
-    repo: ironbark-pro/ironbark-jd
-      branch: main
+  name: github
+  repo: ironbark-pro/ironbark-jd
+  branch: main
 media_folder: "assets/uploads"
 public_folder: "/assets/uploads"
-
 media_library:
   name: uploadcare
   config:
     publicKey: demopublickey
-
 collections:
   - name: "jobs"
     label: "Job Listings"
