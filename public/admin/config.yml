@@ -1,5 +1,7 @@
 backend:
-  name: git-gateway
+    name: github
+    repo: ironbark-pro/ironbark-jd
+      branch: main
 media_folder: "assets/uploads"
 public_folder: "/assets/uploads"
 
