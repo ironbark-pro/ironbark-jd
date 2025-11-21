@@ -1,0 +1,41 @@
+---
+layout: base.njk
+permalink: /jobs/index.html
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Current Openings | Ironbark</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" href="/assets/favicon-1b.png">
+  <style>
+    body { background:#1D2D29; color:#fff; font-family:Arial,Helvetica,sans-serif; padding:0; margin:0; }
+    h1 { margin:0 0 16px; }
+    a { color:#D4A63A; text-decoration:none; }
+    a:hover { text-decoration:underline; }
+    .logo-div { max-width:900px; margin:0 auto 40px; padding:10px 0; }
+    .list { max-width:900px; margin:0 auto; }
+    .item { padding:10px 0; border-bottom:1px solid rgba(255,255,255,.12); }
+  </style>
+</head>
+<body>
+  <div class="logo-div">
+    <a href="/" style="display:inline-block;">
+      <img src="/assets/ironbark-logo-dark.png" alt="IRONBARK Executive Search" style="max-width:300px;">
+    </a>
+  </div>
+
+  <div class="list">
+    <h1>Current Openings</h1>
+    {% for job in collections.jobs %}
+    <div class="item">
+      <a href="{{ job.url }}">{{ job.data.title }}</a> — {{ job.data.location }}
+    </div>
+    {% endfor %}
+  </div>
+
+  <a href="https://ironbark.pro/">← Back to Ironbark.pro</a>
+</body>
+</html>
