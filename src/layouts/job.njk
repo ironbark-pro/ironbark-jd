@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>{{ title }} | Ironbark</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" href="/assets/favicon-1b.png">
+  <style>
+    body { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background:#3C5D5C; color:#fff; font-family:Arial,Helvetica,sans-serif; padding:40px 20px; }
+    header { background:#1D2D29; padding:28px 20px; text-align:center; }
+    header img { margin-bottom:10px; max-width:300px; }
+    loc { opacity: 0.9; }
+    a:hover { text-decoration:underline; }
+    .list { max-width:900px; margin:0 auto; }
+    .item { padding:10px 0; border-bottom:1px solid rgba(255,255,255,.12); }
+  </style>
+</head>
+<body>
+  <a href="/jobs/">← Back to All Jobs</a>
+  
+  <h1>{{ title }}</h1>
+  <p>📍 {{ location }}</p>
+  
+  <h2>About the Company</h2>
+  <p>{{ company }}</p>
+  
+  <h2>Role</h2>
+  <p>{{ summary }}</p>
+  
+  <h2>Responsibilities</h2>
+  <p>{{ responsibilities }}</p>
+  
+  <h2>Requirements</h2>
+  <p>{{ requirements }}</p>
+  
+  <h2>Conditions</h2>
+  <p>{{ conditions }}</p>
+  
+  <!-- Application Form -->
+  <h2>Apply for this position</h2>
+  <form name="job-application" method="POST" data-netlify="true" enctype="multipart/form-data">
+    <input type="hidden" name="form-name" value="job-application">
+    <input type="hidden" name="position" value="{{ title }}">
+    
+    <label>Full Name<br><input type="text" name="name" required></label><br>
+    <label>Email<br><input type="email" name="email" required></label><br>
+    <label>LinkedIn URL<br><input type="url" name="linkedin"></label><br>
+    <label>Upload CV<br><input type="file" name="cv" required></label><br>
+    <label>Comment<br><textarea name="comment" rows="4"></textarea></label><br>
+    <button type="submit">SUBMIT</button>
+  </form>
+</body>
+</html>
