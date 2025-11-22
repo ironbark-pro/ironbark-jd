@@ -1,0 +1,15 @@
+---
+layout: base.njk
+title: Current Job Openings
+---
+
+<h1>Current Openings</h1>
+
+{% for job in collections.jobs %}
+<div class="job-item">
+  <h2><a href="{{ job.url }}">{{ job.data.title }}</a></h2>
+  <p><strong>Location:</strong> {{ job.data.location }}</p>
+  <p>{{ job.data.summary }}</p>
+  <p><em>Posted: {{ job.date | date: "%Y-%m-%d" }}</em></p>
+</div>
+{% endfor %}
