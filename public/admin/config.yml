@@ -1,21 +1,29 @@
+# Use DecapBridge PKCE auth (required)
 backend:
   name: git-gateway
+  repo: ironbark-pro/ironbark-jd
   branch: main
+  auth_type: pkce
+  base_url: https://auth.decapbridge.com
+  auth_endpoint: /sites/a7dafa0d-146a-4c42-853b-9c0290ad997b/pkce
+  auth_token_endpoint: /sites/a7dafa0d-146a-4c42-853b-9c0290ad997b/token
+  gateway_url: https://gateway.decapbridge.com
+
 media_folder: "assets/uploads"
 public_folder: "/assets/uploads"
 media_library:
   name: uploadcare
-config:
-  publicKey: demopublickey
+  config:
+    publicKey: demopublickey
 collections:
   - name: "jobs"
     label: "Job Listings"
     folder: "jobs"
     create: true
     slug: "{{slug}}"
-    preview_path: "jobs/{{slug}}.html"
     fields:
       - {label: "Title", name: "title", widget: "string"}
+      - {label: "Company", name: "company", widget: "string"}
       - {label: "Location", name: "location", widget: "string"}
+      - {label: "Type", name: "type", widget: "select", options: ["Full-time", "Part-time", "Contract"]}
       - {label: "Description", name: "body", widget: "markdown"}
-      - {label: "Published", name: "published", widget: "boolean", default: false}
