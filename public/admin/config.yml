@@ -16,7 +16,7 @@ media_library:
   config:
     publicKey: demopublickey
 collections:
-- name: "jobs"
+  - name: "jobs"
     label: "Job Listings"
     folder: "jobs"
     create: true
