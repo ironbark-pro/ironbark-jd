@@ -1,4 +1,3 @@
-# Use DecapBridge PKCE auth (required)
 backend:
   name: git-gateway
   repo: ironbark-pro/ironbark-jd
@@ -15,18 +14,19 @@ media_library:
   name: uploadcare
   config:
     publicKey: demopublickey
+
 collections:
   - name: "jobs"
     label: "Job Listings"
     folder: "jobs"
     create: true
     slug: "{{slug}}"
-      view_url: "https://ironbark-jobs.com/jobs/{{slug}}"
-        preview_path: false
+    view_url: "https://ironbark-jobs.com/jobs/{{slug}}"
+    preview_path: false
     fields:
       - {label: "Title", name: "title", widget: "string"}
       - {label: "Company", name: "company", widget: "string"}
       - {label: "Location", name: "location", widget: "string"}
       - {label: "Type", name: "type", widget: "select", options: ["Full-time", "Part-time", "Contract"]}
       - {label: "Description", name: "body", widget: "markdown"}
-            - {label: "Date", name: "date", widget: "datetime", default: "", format: "YYYY-MM-DD", date_format: "YYYY-MM-DD", time_format: false}
+      - {label: "Date", name: "date", widget: "datetime", default: "", format: "YYYY-MM-DD", date_format: "YYYY-MM-DD", time_format: false}
