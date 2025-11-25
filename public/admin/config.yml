@@ -21,7 +21,6 @@ collections:
     folder: "jobs"
     create: true
     slug: "{{slug}}"
-    view_url: "https://ironbark-jobs.com/jobs/{{slug}}"
     editor:
       preview: false
     fields:
