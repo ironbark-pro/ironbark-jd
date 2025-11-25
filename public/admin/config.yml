@@ -23,7 +23,7 @@ collections:
     slug: "{{slug}}"
     editor:
       preview: false
-       preview_path: "jobs/{{slug}}.html"
+    preview_path: "jobs/{{slug}}.html"
     site_url: "https://ironbark-jobs.com"
     fields:
       - {label: "Title", name: "title", widget: "string"}
