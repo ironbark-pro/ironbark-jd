@@ -9,6 +9,7 @@ backend:
   gateway_url: https://gateway.decapbridge.com
 media_folder: "assets/uploads"
 public_folder: "/assets/uploads"
+site_url: "https://ironbark-jobs.com"
 media_library:
   name: uploadcare
   config:
@@ -22,8 +23,9 @@ collections:
     editor:
       preview: false
     preview_path: "jobs/{{slug}}.html"
-    site_url: "https://ironbark-jobs.com"
     fields:
+      - {label: "Layout", name: "layout", widget: "hidden", default: "job.njk"}
+      - {label: "Permalink", name: "permalink", widget: "hidden", default: "jobs/{{ page.fileSlug }}.html"}
       - {label: "Title", name: "title", widget: "string"}
       - {label: "Company", name: "company", widget: "string"}
       - {label: "Location", name: "location", widget: "string"}
