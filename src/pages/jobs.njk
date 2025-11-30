@@ -1,0 +1,41 @@
+---
+layout: "base.njk"
+permalink: "jobs/index.html"
+title: "Careers at IronBark"
+---
+
+<main class="careers">
+  <h1>Open Positions</h1>
+  
+  <div class="jobs-list">
+    {% for job in collections.jobs | reverse %}
+    <article class="job-item">
+      <h2><a href="/{{ job.url }}">{{ job.data.title }}</a></h2>
+      
+      <div class="job-meta">
+        {% if job.data.location %}
+        <span class="location">📍 {{ job.data.location }}</span>
+        {% endif %}
+        
+        {% if job.data.type %}
+        <span class="type">💼 {{ job.data.type }}</span>
+        {% endif %}
+        
+        {% if job.data.date %}
+        <span class="date">📅 {{ job.data.date | formatDate }}</span>
+        {% endif %}
+      </div>
+      
+      {% if job.data.summary %}
+      <p class="summary">{{ job.data.summary }}</p>
+      {% endif %}
+      
+      <a href="/{{ job.url }}" class="btn-apply">View Details →</a>
+    </article>
+    {% endfor %}
+  </div>
+  
+  {% if collections.jobs.length == 0 %}
+  <p>No open positions at the moment. Check back soon!</p>
+  {% endif %}
+</main>
