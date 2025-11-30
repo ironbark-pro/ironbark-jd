@@ -1,4 +1,6 @@
 ---
+layout: "job.njk"
+permalink: "jobs/{{ page.fileSlug }}.html"
 title: Senior Manager, Engineering Management Platform
 location: "Location: Southwest US (Arizona region)"
 company: >
