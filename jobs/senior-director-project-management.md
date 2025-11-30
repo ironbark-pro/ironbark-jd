@@ -1,4 +1,6 @@
 ---
+layout: "job.njk"
+permalink: "jobs/{{ page.fileSlug }}.html"
 summary: "{Our client, a top renewable-energy developer, is hiring|Our client
   seeks} a {Senior Director of Project Management|PM Director} to {mentor|guide}
   a team of PMs and analysts and {oversee|manage} all financial, contractual,
