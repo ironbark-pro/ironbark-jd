@@ -9,7 +9,8 @@ location: Southwest US (Arizona region)
 type: Full-time
 date: 2025-12-01
 ---
- **Key Responsibilities** (not limited to):
+ 
+**Key Responsibilities** (not limited to):
 
 * Manage integrated Project Delivery Systems (Engineering Systems, AWP, enterprise PLM, IT/enterprise tools,) for high-tech projects. 
 * Optimize Advanced Work Packaging (AWP) workflows and data integration across engineering disciplines.
