@@ -9,7 +9,7 @@ location: Northeast US (New York region)
 type: Full-time
 date: 2025-12-01
 ---
-**Key Responsibilities** (not limited to):
+##### **Key Responsibilities** (not limited to):
 
 * Team Leadership: {Lead|Inspire} PMs and analysts on {multi-site|utility-scale} projects.
 * Contract and Risk: {Drive|Steer} subcontract negotiations, change-order management, and risk-mitigation plans.
