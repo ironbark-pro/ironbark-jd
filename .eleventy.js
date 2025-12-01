@@ -13,8 +13,6 @@ module.exports = function(eleventyConfig) {
   // Redirects → _site/_redirects
   eleventyConfig.addPassthroughCopy({ "public/_redirects": "_redirects" });
   
-  // Главная страница → _site/index.html (КРИТИЧНО!)
-  eleventyConfig.addPassthroughCopy({ "public/index.html": "index.html" });
   
   // ============================================
   // IGNORES: Исключаем из обработки
