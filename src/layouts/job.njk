@@ -54,7 +54,23 @@
       <h2>About the Company</h2>
       <p>{{ company }}</p>
 
-      {{ content | safe }}
+    {% if responsibilities %}
+    <h2>Role</h2>
+    <p>{{ responsibilities }}</p>
+    {% endif %}
+
+    {% if requirements %}
+    <h2>Requirements</h2>
+    <p>{{ requirements }}</p>
+    {% endif %}
+
+    {% if conditions %}
+    <h2>We Offer</h2>
+    <p>{{ conditions }}</p>
+    {% endif %}
+
+    {{ content | safe }}
+
     </div>
 
     <div class="application-section">
