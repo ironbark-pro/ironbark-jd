@@ -15,9 +15,9 @@ date: 2025-12-01
 * Contract and Risk: {Drive|Steer} subcontract negotiations, change-order management, and risk-mitigation plans.
 * Scheduling Standards: {Define|Set} WBS structures, float policies, and schedule best practices.
 * Compliance and Reporting: {Implement|Oversee} federal and state incentive tracking and executive-level dashboards.
-* Collaboration: Coordinate with Controls, Finance, and Legal teams to meet all reporting and milestone targets.
+* Collaboration: Coordinate with Controls, Finance, and Legal teams to meet all reporting and milestone targets. 
 
-## **Requirements**
+**Requirements**
 
 * Bachelor’s in Engineering degree.
 * PMP or PMP preferred / PM certs a plus.
@@ -26,7 +26,7 @@ date: 2025-12-01
 * Strong communicator|Exceptional presenter with experience engaging C-suite stakeholders.
 * Ability to travel up to 20%.
 
-## **Conditions:**
+**Conditions:**
 
 * Salary range: 180000–250000 USD plus performance bonus.
 * Comprehensive benefits package.
