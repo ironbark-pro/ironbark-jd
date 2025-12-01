@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ title }} | Ironbark</title>
     <link rel="icon" href="/assets/favicon-ib.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&display=swap" rel="stylesheet">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { background: #3C5D5C; color: #FFF; font-family: Arial, Helvetica, sans-serif; line-height: 1.6; }
@@ -14,7 +17,12 @@
         .back-link { color: #D4A63A; text-decoration: none; font-size: 14px; display: inline-block; margin-bottom: 30px; }
         .back-link:hover { text-decoration: underline; }
         .job-header { margin-bottom: 40px; }
-        .job-title { font-size: 32px; font-weight: bold; margin-bottom: 16px; }
+        .job-title { 
+            font-size: 32px; 
+            font-weight: 500; 
+            font-family: 'Cinzel', serif;
+            margin-bottom: 16px; 
+        }
         .job-meta { display: flex; gap: 20px; color: rgba(255,255,255,0.7); margin-bottom: 24px; font-size: 15px; }
         .job-content { background: rgba(255,255,255,0.05); padding: 32px; border-radius: 8px; margin-bottom: 40px; }
         .job-content h2 { color: #D4A63A; font-size: 20px; margin: 24px 0 12px; }
@@ -33,62 +41,79 @@
     </style>
 </head>
 <body>
-
-  <div style="max-width:900px; margin:0 auto 10px; padding:10px 0; text-align:center">
-    <a href="/" style="display:inline-block;">
-      <img src="/assets/ironbark-logo.png" alt="IRONBARK Executive Search" style="max-width:300px;">
-    </a>
-  </div>
-
-  <div class="container">
-    <a href="/" class="back-link">← Back to All Jobs</a>
-
-    <div class="job-header">
-      <h1 class="job-title">{{ title }}</h1>
-      <div class="job-meta">
-        {% if location %}<span>📍 {{ location }}</span>{% endif %}
-      </div>
+    <div class="logo">
+        <a href="/">
+            <img src="/assets/ironbark-logo.png" alt="IRONBARK Executive Search">
+        </a>
     </div>
 
-    <div class="job-content">
-      <h2>About the Company</h2>
-      <p>{{ company }}</p>
+    <div class="container">
+        <a href="/" class="back-link">← Back to All Openings</a>
 
-    {% if responsibilities %}
-    <h2>Role</h2>
-    <p>{{ responsibilities }}</p>
-    {% endif %}
+        <div class="job-header">
+            <h1 class="job-title">{{ title }}</h1>
+            {% if location %}
+            <div class="job-meta">
+                <span>📍 {{ location }}</span>
+            </div>
+            {% endif %}
+        </div>
 
-    {% if requirements %}
-    <h2>Requirements</h2>
-    <p>{{ requirements }}</p>
-    {% endif %}
+        <div class="job-content">
+            {% if company %}
+            <h2>About the Company</h2>
+            <p>{{ company }}</p>
+            {% endif %}
 
-    {% if conditions %}
-    <h2>We Offer</h2>
-    <p>{{ conditions }}</p>
-    {% endif %}
+            {% if responsibilities %}
+            <h2>Role Overview</h2>
+            <p>{{ responsibilities | safe }}</p>
+            {% endif %}
 
-    {{ content | safe }}
+            {% if requirements %}
+            <h2>What We're Looking For</h2>
+            <p>{{ requirements | safe }}</p>
+            {% endif %}
 
+            {% if conditions %}
+            <h2>What We Offer</h2>
+            <p>{{ conditions | safe }}</p>
+            {% endif %}
+        </div>
+
+        <div class="application-section">
+            <h2>Apply for this Role</h2>
+            <form name="job-application" method="POST" data-netlify="true" enctype="multipart/form-data">
+                <input type="hidden" name="job-title" value="{{ title }}">
+                
+                <div class="form-group">
+                    <label for="name">Name *</label>
+                    <input type="text" id="name" name="name" required placeholder="Your full name">
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email *</label>
+                    <input type="email" id="email" name="email" required placeholder="your.email@example.com">
+                </div>
+
+                <div class="form-group">
+                    <label for="linkedin">LinkedIn URL</label>
+                    <input type="url" id="linkedin" name="linkedin" placeholder="https://linkedin.com/in/yourprofile">
+                </div>
+
+                <div class="form-group">
+                    <label for="resume">Upload CV *</label>
+                    <input type="file" id="resume" name="resume" accept=".pdf,.doc,.docx" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="comment">Additional Comments</label>
+                    <textarea id="comment" name="comment" placeholder="Tell us why you're interested in this role..."></textarea>
+                </div>
+
+                <button type="submit" class="submit-btn">Submit Application</button>
+            </form>
+        </div>
     </div>
-
-    <div class="application-section">
-      <h2>Apply for this Role</h2>
-      <form name="job-application" method="POST" data-netlify="true" enctype="multipart/form-data">
-        <input type="hidden" name="form-name" value="job-application">
-        <input type="hidden" name="job-title" value="{{ title }}">
-
-        <div class="form-group"><label>Name</label><input type="text" name="name" required></div>
-        <div class="form-group"><label>Email</label><input type="email" name="email" required></div>
-        <div class="form-group"><label>LinkedIn URL</label><input type="url" name="linkedin" placeholder="https://linkedin.com/in/yourprofile"></div>
-        <div class="form-group"><label>Upload CV</label><input type="file" name="resume" accept=".pdf,.doc,.docx" required></div>
-        <div class="form-group"><label>Comment</label><textarea name="comment" placeholder="Which responsibilities have you handled, and which are new to you? We're here to help you find the best company and role match."></textarea></div>
-
-        <button type="submit" class="submit-btn">SUBMIT</button>
-      </form>
-    </div>
-  </div>
-
 </body>
 </html>
