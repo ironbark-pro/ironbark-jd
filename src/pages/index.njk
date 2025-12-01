@@ -1,0 +1,34 @@
+---
+layout: "base.njk"
+permalink: "index.html"
+title: "Current Openings | Ironbark"
+---
+
+<header>
+    <h1>Current Openings</h1>
+    <p>Exclusive opportunities for exceptional executive talent</p>
+</header>
+
+<div class="jobs-list">
+    {% for job in collections.jobs | reverse %}
+    <div class="job-card" onclick="window.location.href='/{{ job.url }}'">
+        <h2>{{ job.data.title }}</h2>
+        
+        <div class="job-meta">
+            {% if job.data.location %}
+            <span>📍 {{ job.data.location }}</span>
+            {% endif %}
+        </div>
+        
+        {% if job.data.company %}
+        <p>{{ job.data.company }}</p>
+        {% endif %}
+        
+        <a href="/{{ job.url }}" class="job-link" onclick="event.stopPropagation()">View Details & Apply →</a>
+    </div>
+    {% endfor %}
+</div>
+
+{% if collections.jobs.length == 0 %}
+<p>No open positions at the moment. Check back soon!</p>
+{% endif %}
