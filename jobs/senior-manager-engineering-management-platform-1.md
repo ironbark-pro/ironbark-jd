@@ -19,7 +19,8 @@ date: 2025-12-01
 
 **Requirements:**
 
-* Bachelor’s degree in engineering (15+ years 10 ? in design/piping engineering; 4+ years managing teams of 5+). 
+* Bachelor’s degree in engineering 15+ years in design/piping engineering; 
+* 4+ years managing teams of 5+. 
 * Expertise in EPC processes, engineering data lifecycle, and tools like AWP, document management systems. 
 * Familiarity with database technologies, IT systems, and cross-functional project mobilization.
 
