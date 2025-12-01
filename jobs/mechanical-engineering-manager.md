@@ -11,11 +11,11 @@ date: 2025-12-01
 ---
 #### **Key Responsibilities** (not limited to):
 
-* Team Leadership: {Lead|Inspire} PMs and analysts on {multi-site|utility-scale} projects.
-* Contract and Risk: {Drive|Steer} subcontract negotiations, change-order management, and risk-mitigation plans.
-* Scheduling Standards: {Define|Set} WBS structures, float policies, and schedule best practices.
-* Compliance and Reporting: {Implement|Oversee} federal and state incentive tracking and executive-level dashboards.
-* Collaboration: Coordinate with Controls, Finance, and Legal teams to meet all reporting and milestone targets. 
+* Team leadership: Lead project managers and analysts on multi-site and utility-scale programs.
+* Contracts and risk: Handle subcontract negotiations, change-order management and risk-mitigation planning.
+* Scheduling standards: Set WBS structures, float policies and schedule best practices.
+* Compliance and reporting: Oversee federal and state incentive tracking and executive-level reporting.
+* Cross-functional collaboration: Work with Controls, Finance and Legal to meet all reporting and milestone requirements.
 
 #### **Requirements:**
 
